@@ -16,6 +16,7 @@ public class Main extends JavaPlugin {
             }
         }.runTaskTimer(this, 0, 20);
         getServer().getPluginManager().registerEvents(new Events(), this);
+        this.getCommand("lightning").setExecutor(new CommandLightning());
     }
 
     @Override
