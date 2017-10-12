@@ -9,13 +9,20 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        // when the server starts...
+
+        // create a task which writes "second" into the chat
         new BukkitRunnable() {
             @Override
             public void run() {
                 getServer().broadcastMessage("second");
             }
-        }.runTaskTimer(this, 0, 20);
+        }.runTaskTimer(this, 0, 20); // run it every 20 ticks
+
+        // register the events described in Events.java
         getServer().getPluginManager().registerEvents(new Events(), this);
+
+        // register the command described in CommandLightning.java
         this.getCommand("lightning").setExecutor(new CommandLightning());
     }
 
